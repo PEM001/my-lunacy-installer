@@ -8,7 +8,7 @@
         runs-on: ubuntu-latest
         steps:
           - name: Checkout repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           - name: Download Lunacy EXE from URL
             run: curl -L "https://lcdn.icons8.com/setup/beta/LunacySetup.exe" -o LunacySetup.exe
