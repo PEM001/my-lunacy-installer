@@ -1,0 +1,22 @@
+    name: Download Lunacy EXE
+
+    on:
+      workflow_dispatch: # این یعنی می‌توانی دستی اجرا کنی
+
+    jobs:
+      download-and-commit:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v3
+
+          - name: Download Lunacy EXE from URL
+            run: curl -L "https://lcdn.icons8.com/setup/beta/LunacySetup.exe" -o LunacySetup.exe
+
+          - name: Commit and push the file
+            run: |
+              git config --local user.email "github-actions@github.com"
+              git config --local user.name "GitHub Actions"
+              git add LunacySetup.exe
+              git commit -m "Add LunacySetup.exe from URL"
+              git push
